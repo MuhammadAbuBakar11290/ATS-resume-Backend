@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .navbar {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .header {
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  textarea {
+    width: 80%;
+    height: 100px;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  .dropzone {
+    border: 2px dashed #007bff;
+    padding: 1rem;
+    cursor: pointer;
+    margin: 1rem 0;
+  }
+  
+  .dropzone p {
+    margin: 0;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .response {
+    margin-top: 2rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    text-align: left;
+    width: 80%;
+    margin: 2rem auto;
+  }
+  
