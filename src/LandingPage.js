@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Dropzone from 'react-dropzone';
+import './LandingPage.css'; // Ensure this CSS file is imported
 
 const App = () => {
   const [jobDescription, setJobDescription] = useState('');
@@ -38,43 +39,48 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="App">
       <nav className="navbar">
         <h1>ATS Resume Expert</h1>
       </nav>
-      <header className="header">
-        <h2>ATS Tracking System</h2>
-        <textarea
-          placeholder="Job Description"
-          value={jobDescription}
-          onChange={handleJobDescriptionChange}
-        />
-        <Dropzone onDrop={handleFileUpload}>
-          {({ getRootProps, getInputProps }) => (
-            <div {...getRootProps()} className="dropzone">
-              <input {...getInputProps()} />
-              {uploadSuccess ? (
-                <p>PDF Uploaded Successfully ✅</p>
-              ) : (
-                <p>Drag & drop a resume file, or click to select one</p>
-              )}
+      <div className="header-container">
+        <header className="header">
+          <div className="typewriter">
+            <h2>Welcome to ATS Tracking System</h2>
+          </div>
+          <textarea
+            placeholder="Job Description"
+            value={jobDescription}
+            onChange={handleJobDescriptionChange}
+          />
+          <Dropzone onDrop={handleFileUpload}>
+            {({ getRootProps, getInputProps }) => (
+              <div {...getRootProps()} className="dropzone">
+                <input {...getInputProps()} />
+                {uploadSuccess ? (
+                  <p>PDF Uploaded Successfully ✅</p>
+                ) : (
+                  <p>Drag & drop a resume file, or click to select one</p>
+                )}
+              </div>
+            )}
+          </Dropzone>
+          <div className="buttons">
+            <button className="btn" onClick={() => handleSubmit('tell_me_about_resume')}>Tell Me About the Resume</button>
+            <button className="btn" onClick={() => handleSubmit('suggest_missing_keywords')}>Suggest Missing Keywords</button>
+            <button className="btn" onClick={() => handleSubmit('percentage_match')}>Percentage Match</button>
+            <button className="btn" onClick={() => handleSubmit('improve_skills')}>Suggestions to Improve Skills</button>
+            <button className="btn" onClick={() => handleSubmit('overall_feedback')}>Overall Resume Feedback</button>
+          </div>
+          {response && (
+            <div className="response">
+              <h3>Response:</h3>
+              <p>{response}</p>
             </div>
           )}
-        </Dropzone>
-        <div className="buttons">
-          <button onClick={() => handleSubmit('tell_me_about_resume')}>Tell Me About the Resume</button>
-          <button onClick={() => handleSubmit('suggest_missing_keywords')}>Suggest Missing Keywords</button>
-          <button onClick={() => handleSubmit('percentage_match')}>Percentage Match</button>
-          <button onClick={() => handleSubmit('improve_skills')}>Suggestions to Improve Skills</button>
-          <button onClick={() => handleSubmit('overall_feedback')}>Overall Resume Feedback</button>
-        </div>
-        {response && (
-          <div className="response">
-            <h3>Response:</h3>
-            <p>{response}</p>
-          </div>
-        )}
-      </header>
+        </header>
+        {/* <img src="/Bglogo.png" alt="Logo" className="header-image" /> */}
+      </div>
     </div>
   );
 };
